@@ -1,0 +1,118 @@
+<div class="title my-2 position-relative d-flex justify-content-center align-items-center">
+    <h2 class=" my-0 h1">Today's Task</h2>
+    <h3 class=" my-0 position-absolute fw-bold h1">Today's Task</h3>
+</div>
+
+
+
+<!-- Real Tasks -->
+<h2 class="mb-4">Real Tasks  ({{tasks.length}})</h2>
+<div *ngIf="isDone" class="alert alert-danger p-2 w-75 mx-auto text-center">
+    <p class="m-0 p-0 h3">This Task Has Already Been Completed</p>
+</div>
+
+<div class="row ">
+    <div class="col-lg-9 mx-auto mb-3" *ngFor="let task of tasks; let index = index">
+        <div class="main">
+            <div class="task text-center">
+                <div class="chk mx-4 d-flex align-items-center justify-content-center">
+                    <div class="mx-2">
+                        <p class="p-0 m-0">{{myDate | date :'shortTime'}}</p>
+                        <p class="p-0 m-0">{{myDate | date :'shortDate'}}</p>
+                    </div>
+                    <input class="form-check-input chk-in" type="checkbox">
+                </div>
+                <div class="des"> 
+                        <h2 class="h4">{{task.title}}</h2>
+                        <p class="text-muted">{{task.description}}</p>
+                </div>
+                <div class="mx-4 d-flex align-items-center justify-content-center">
+                    <button (click)="getTaskById(index) " class="dn-btn mx-2">Done</button>
+                    <button (click)="dlt(index)" class="dlt-btn mx-2">Delete</button>  
+                </div>
+            </div>
+        </div>
+            </div>
+</div>
+<!-- Real Tasks end ^ -->
+
+
+
+
+<div class="line"></div>
+
+
+
+<!-- Done Tasks  -->
+<div class="d-flex align-items-center justify-content-between mt-4">
+    <h2>Done Tasks  ({{doneTasks.length}})</h2>
+    <div (click)="clkDone()" class="d-flex align-items-center justify-content-center">
+        <i class="fa-solid fa-angle-down done-icon h5"></i>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-lg-9 mx-auto mb-3" *ngFor="let task of doneTasks; let index = index">
+        <div class="main">
+            <div class="task text-center clck-done">
+                <div class="chk mx-4 d-flex align-items-center justify-content-center">
+                    <div class="mx-2">
+                        <p class="p-0 m-0">{{myDate | date :'shortTime'}}</p>
+                        <p class="p-0 m-0">{{myDate | date :'shortDate'}}</p>
+                    </div>
+                    <input checked class="form-check-input chk-in" type="checkbox">
+                </div>
+                <div class="des">
+                        <h2 class="h4">{{task.title}}</h2>
+                        <p class="text-muted">{{task.description}}</p>
+                </div>
+                <div class="mx-4 d-flex align-items-center justify-content-center">
+                    <button (click)="removeDoneTask(index)" class="dlt-btn mx-3">Remove</button>
+                    <!-- <i class="fa-solid fa-ellipsis-vertical icon"></i> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Done Tasks end ^ -->
+
+
+
+
+
+
+<!-- create sign  -->
+<div class="new-task " (click)="appearFRM()">
+    <i class="fa-solid fa-plus new-icon"></i>
+</div>
+<!-- create sign  -->
+
+<!-- create new task form  -->
+<div class="frm d-flex align-items-center justify-content-center">
+
+    <form (ngSubmit)="submitTask(createTask)" [formGroup]="createTask" class="my-5 text-center w-75 mx-auto">
+
+        <input formControlName="icon" type="text" class="form-control mb-1" placeholder="  Title">
+        <div *ngIf="createTask.get('icon')?.errors && createTask.get('icon')?.touched" class="alert alert-danger text-start py-2 fw-bold my-2">
+            <p *ngIf="createTask.get('icon')?.errors?.['required']" class="mb-0 ">Title Is Required</p>
+            <p *ngIf="createTask.get('icon')?.errors?.['minlength']" class="mb-0 ">Min Length Is 5 Characters</p>
+            <p *ngIf="createTask.get('icon')?.errors?.['maxlength']" class="mb-0 ">Max Length Is 15 Characters</p>
+        </div> 
+        
+        
+        <textarea formControlName="description" class="form-control mt-3" placeholder="  Description (5 - 50) characters" cols="5" rows="2"></textarea>
+        <div *ngIf="createTask.get('description')?.errors && createTask.get('description')?.touched" class="alert alert-danger text-start py-2 fw-bold my-2">
+            <p *ngIf="createTask.get('description')?.errors?.['required']" class="mb-0 ">Description Is Required</p>
+            <p *ngIf="createTask.get('description')?.errors?.['minlength']" class="mb-0 ">Min Length Is 5 Characters</p>
+            <p *ngIf="createTask.get('description')?.errors?.['maxlength']" class="mb-0 ">Max Length Is 50 Characters</p>
+        </div>
+
+        <button [disabled]="createTask.invalid" class="py-3 h5 mt-3">CREATE</button>
+    </form>
+
+    <div (click)="disAappearFRM()">
+        <i class="fa-solid fa-xmark frmX h1"></i>
+    </div>
+
+</div>
+<!-- create new task form end ^ -->

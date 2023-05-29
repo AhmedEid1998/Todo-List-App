@@ -1,0 +1,203 @@
+
+.title{
+    margin-top: 60px !important;
+}
+
+.title h2{
+    font-size: 6rem;
+    color: white;
+    letter-spacing: 5px;
+    opacity: 0.1;
+    color: var(--second-color);
+}
+
+.title h3{
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: white;
+    color: var(--second-color);
+}
+
+
+p{
+    color: var(--second-color);
+    opacity: 0.7;
+}
+
+.pass{
+    position: relative;
+}
+
+.pass-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+button{
+    width: 80%;
+    border-radius: 15px;
+    background-color: #1a61b7;
+    color: white;
+    border: solid 1px #1a61b7;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background-color: white;
+    color: #1a61b7;
+}
+
+.alert p{
+    color: #0b4e9f;
+    line-height: 30px;
+}
+
+
+
+
+/* or  */
+.or{
+    position: relative;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 1);
+    margin-top: 30px 0 !important;
+
+}
+.or::after{
+    content: '';
+    width: 35%;
+    height: 1px;
+    background: linear-gradient(to left, transparent, rgba(0, 0, 0, 1));
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.or::before{
+    content: '';
+    width: 35%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 1));
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* social media button  */
+
+.social-btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-btns div{
+    margin-top: 20px;
+}
+
+.gogl,
+.fcbok{
+    text-decoration: none;
+    padding: 10px;
+    width: 20%;
+    color: white;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+.gogl a,
+.fcbok a{
+    text-decoration: none;
+    color: white;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: 0.5s ease;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.gogl{
+    box-shadow: 1px 1px 5px rgba(116, 113, 113, 0.5);
+    background-color: white!important;
+    transition: 0.5s ease;
+}
+
+.gogl a{
+    color: var(--second-color) !important;
+}
+
+.gogl:hover {
+    background-color: var(--second-color) !important;
+    box-shadow: 1px 1px 5px rgba(116, 113, 113, 0.5);
+}
+.gogl:hover a{
+    color: white !important;
+}
+
+.fcbok{
+    background-color: var(--second-color)  !important;
+    transition: 0.5s ease;
+}
+
+.fcbok:hover {
+    background-color: white !important;
+    color: var(--second-color) !important;
+    box-shadow: 1px 1px 5px rgba(116, 113, 113, 0.5);
+}
+.fcbok:hover a{
+    color: var(--second-color) !important;
+}
+
+.icon{
+    font-size: 2rem !important;
+    margin-right: 10px !important;
+}
+
+
+
+
+.end{
+    margin-bottom: 120px;
+}
+@media screen and (max-width:750px) {
+    .title h2{
+        font-size: 3.8rem;
+        letter-spacing: 3px;
+    }
+
+    .title h3{
+        font-size: 2rem;
+    }
+
+    .social-btns{
+        display: block;
+    }
+
+    .gogl,
+    .fcbok{
+        width: 70%;
+        margin: auto;
+    }
+
+    .or{
+        font-size: 1.1rem;
+        margin-top: 20px  !important;
+    }
+
+    .or::after{
+        width: 30%;
+    }
+
+    .or::before{
+        width: 30%;
+    }
+}

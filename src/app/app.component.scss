@@ -1,0 +1,44 @@
+
+footer{
+    background-color: transparent;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    a{
+        transition: 0.5s ease;
+        color: white;
+    }
+    a:hover{
+        cursor: pointer;
+        color: var(--second-color);
+    }
+    .cprit a{
+        letter-spacing: 5px;
+        color: white;
+        text-decoration: none;
+        font-weight: bolder;
+    }
+    .cprit a:hover{
+        color: var(--second-color);
+    }
+    
+    div{
+        margin: auto;
+    }
+    .cntnt{
+        width: 50%;
+        background: linear-gradient(to right, var(--second-color), var(--main-color) );
+        color: white;
+        border-radius: 20px;
+    }
+}
+
+@media only screen  and (max-width: 900px) {
+    
+    .cntnt{
+        width: 90% !important;
+    }
+}

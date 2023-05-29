@@ -1,0 +1,60 @@
+
+
+<div class="col-lg-10 mx-auto mt-5">
+
+    <div class="mt-5">
+    
+        <div class="title my-2 position-relative d-flex justify-content-center align-items-center">
+            <h2 class=" my-0 h1">Hello !</h2>
+            <h3 class=" my-0 position-absolute fw-bold h1">Hello !</h3>
+        </div>
+        <p class="text-center mb-2 h4">welcome to Mtodo app</p>
+        <p class="text-center my-0 h4">sign up to get started</p>
+    
+        <!-- alert  -->
+        <div *ngIf="error" class="alert alert-danger w-75 mx-auto mt-5">
+            <p class="h4 m-0 p-0">{{error}}</p>
+        </div>
+        <!-- alert end ^ -->
+
+        <!-- form elements  -->
+        <form (ngSubmit)="submitRegister" [formGroup]="registerForm" class="mt-5 text-center w-75 mx-auto">
+
+            <input formControlName="displayName" type="text" class="form-control mt-3" placeholder="  your name">
+            <div *ngIf="registerForm.get('displayName')?.errors && registerForm.get('displayName')?.touched" class="alert alert-danger text-start py-2 fw-bold mt-2 mb-2">
+                <p *ngIf="registerForm.get('displayName')?.errors?.['required']" class="mb-0 ">Name Is Required</p>
+                <p *ngIf="registerForm.get('displayName')?.errors?.['minlength']" class="mb-0 ">Min Length is 5 characters</p>
+                <p *ngIf="registerForm.get('displayName')?.errors?.['maxlength']" class="mb-0 ">Max Length is 15 characters</p>
+            </div>
+
+
+            <input formControlName="email" type="email" class="form-control mt-3" placeholder="  Enter email">
+            <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger text-start py-2 fw-bold mt-2 mb-2">
+                <p *ngIf="registerForm.get('email')?.errors?.['required']" class="mb-0 ">Email Is Required</p>
+                <p *ngIf="registerForm.get('email')?.errors?.['email']" class="mb-0 ">Email Is Not Valid</p>
+            </div>
+            
+            
+            
+            <input formControlName="password" type="text" class="form-control mt-3" placeholder="  password">
+            <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger text-start py-2 fw-bold mt-2 mb-2">
+                <p *ngIf="registerForm.get('password')?.errors?.['required']" class="mb-0 ">Password Is Required</p>
+                <p *ngIf="registerForm.get('password')?.errors?.['pattern']" class="mb-0 ">Minimum six characters, at least one an uppercase, a lowercase letter, a number and special characters</p>
+            </div>
+
+            <p class="text-muted text-center mx-auto mt-3">by signing up you agree to our 
+                <a routerLink="/register">terms & conditions</a>
+                of use and
+                <a routerLink="/register">privacy policy</a>
+            </p>
+
+            <button [disabled]="registerForm.invalid" (click)="submitRegister(registerForm)" class="py-3 mt-2 h5">SIGN UP</button>
+        </form>
+        <!-- form elements end -->
+
+
+        <p class="text-muted text-center mt-3 end">already have an account <a routerLink="/login"> login</a></p>
+    
+    </div>
+
+</div>

@@ -1,0 +1,73 @@
+
+
+.title{
+    margin-top: 60px !important;
+}
+
+.title h2{
+    font-size: 6rem;
+    color: white;
+    letter-spacing: 5px;
+    opacity: 0.1;
+    color: var(--second-color);
+}
+
+.title h3{
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: white;
+    color: var(--second-color);
+}
+
+p{
+    color: var(--second-color);
+    opacity: 0.7;
+}
+
+.pass{
+    position: relative;
+}
+
+.pass-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+button{
+    width: 80%;
+    border-radius: 15px;
+    background-color: #1a61b7;
+    color: white;
+    border: solid 1px #1a61b7;
+    transition: 0.3s ease;
+}
+
+button:hover{
+    background-color: white;
+    color: #1a61b7;
+}
+
+.alert p{
+    color: #0b4e9f;
+}
+
+.end{
+    margin-bottom: 120px;
+}
+
+
+
+@media screen and (max-width:650px) {
+    .title h2{
+        font-size: 3.8rem;
+        letter-spacing: 3px;
+    }
+
+    .title h3{
+        font-size: 2rem;
+    }
+}

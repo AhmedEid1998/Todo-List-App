@@ -1,0 +1,208 @@
+
+.title{
+    margin-top: 60px !important;
+}
+
+.title h2{
+    font-size: 6rem;
+    color: var(--second-color);
+    letter-spacing: 5px;
+    opacity: 0.1;
+}
+
+.title h3{
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: var(--second-color);
+}
+
+
+
+form{
+    button{
+        width: 40%;
+        border-radius: 15px;
+        background-color: #1a61b7;
+        color: white;
+        border: solid 1px #1a61b7;
+        transition: 0.3s ease;
+    }
+    
+    button:hover{
+        background-color: white;
+        color: #1a61b7;
+    }
+}
+
+
+
+/* main task item  */
+
+.main{
+    margin: 10px auto;
+    background-color: white;
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    width: 95%;
+    color: black;
+
+    .chk-in{
+        width: 30px;
+        height: 30px;
+        border-radius: 50% !important;
+        border: solid 1px rgba(0, 0, 0, 0.3) !important;
+        cursor: pointer;
+    }
+    
+    .icon{
+        color: rgba(0, 0, 0, 0.3) ;
+        height: 30px;
+        cursor: pointer;
+    }
+
+
+    button{
+        padding: 7px 10px;
+        border-radius: 15px;
+        color: white;
+        transition: 0.3s ease;
+        letter-spacing: 1px;
+        font-weight: 600 ;
+    }
+
+    .dn-btn{
+        background-color: #198754;
+        border: solid 1px #198754;
+        &:hover{
+            background-color: white;
+            color: #198754;
+        }
+    }
+    
+    .dlt-btn{
+        background-color: #dc3545;
+        border: solid 1px #dc3545;
+        &:hover{
+            background-color: white;
+            color: #dc3545;
+        }
+    }
+    
+    
+}
+
+
+.line{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 2px;
+    margin: 30px auto 10px auto;
+}
+
+.done-icon{
+    padding: 5px;
+    border-radius: 30%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: solid 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover{
+        background-color: transparent;
+        color: rgba(0, 0, 0, 0.5);    
+    }
+}
+
+.clck-done{
+    display: none;
+}
+.done-tasks{
+    display: flex;
+}
+
+
+.new-task{
+    width: 90px;
+    height: 90px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:  auto;
+    cursor: pointer;
+    border: solid 1px var(--second-color);
+    transition: 0.5s ease;
+    margin-bottom: 130px;
+
+    .new-icon{
+        font-size: 2rem;
+        color: white ;
+        transition: 0.5s ease;
+    }
+
+    &:hover{
+        background-color: white;
+        .new-icon{
+            color: var(--second-color);
+        }
+    }
+}
+
+
+
+.frm{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9;
+    display: none !important;
+}
+
+.appear{
+    display: flex !important;
+}
+
+
+.frmX{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 50%;
+    border: solid 3px white;
+    cursor: pointer;
+    transition: 0.5s ease;
+    &:hover{
+        background-color: transparent;
+        color: white;
+    }
+}
+
+
+
+@media only screen  and (max-width: 900px) {
+    
+    .title h2{
+        font-size: 3rem;
+    }
+    
+    .title h3{
+        font-size: 1.5rem;
+    }
+    
+}

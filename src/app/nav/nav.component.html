@@ -1,0 +1,20 @@
+
+<nav class=" mx-auto ">
+    
+    <h1><a routerLink="/todolist">Mtodo Logo</a></h1>
+
+    <ul class="list-unstyled d-flex m-0 p-0">
+        <li *ngIf="!isLogin">
+            <a routerLink="/login">Login</a>
+        </li>
+
+        <li *ngIf="!isLogin">
+            <a routerLink="/register">Register</a>
+        </li>
+
+        <li *ngIf="isLogin" (click)="logoutBridge()">
+            <a routerLink="/login">Logout</a>
+        </li>
+    </ul>
+
+</nav>
