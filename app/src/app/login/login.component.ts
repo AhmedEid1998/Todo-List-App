@@ -34,6 +34,7 @@ export class LoginComponent {
       }
     },(err)=>{
       this.error = 'This Email Or Password Is Incorrect'
+      console.log(err)
     })
   }
 

@@ -36,7 +36,7 @@
             
             
             
-            <input formControlName="password" type="text" class="form-control mt-3" placeholder="  password">
+            <input formControlName="password" type="password" class="form-control mt-3" placeholder="  password">
             <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger text-start py-2 fw-bold mt-2 mb-2">
                 <p *ngIf="registerForm.get('password')?.errors?.['required']" class="mb-0 ">Password Is Required</p>
                 <p *ngIf="registerForm.get('password')?.errors?.['pattern']" class="mb-0 ">Minimum six characters, at least one an uppercase, a lowercase letter, a number and special characters</p>

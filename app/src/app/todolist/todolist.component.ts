@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators, FormRecord } from '@angular/forms';
 declare var $ :any;
+
 
 @Component({
   selector: 'app-todolist',
@@ -27,20 +28,20 @@ export class TodolistComponent implements OnInit{
 
     //create new task and send that to api, then get all tasks 
     submitTask(formInfo:FormGroup){
-      this._AuthService.sendTask(formInfo.value).subscribe((response)=>{
-        this.getTasks()
-      })
+
+      this._AuthService.sendTask(formInfo.value).subscribe(()=>{
+            this.getTasks()
+      })      
     }
 
 
   ngOnInit(): void {
     this.getTasks()
 
-    //get all tasks in localstorage 
+    //get all tasks from localstorage 
     if('doneTasks'  in localStorage){
       this.doneTasks = (JSON.parse( localStorage.getItem('doneTasks' )!))
     }
-    
   }
 
 
@@ -54,10 +55,10 @@ export class TodolistComponent implements OnInit{
   }
 
   //Delete task from api, then get all tasks
-  dlt(index:any){
+  deleteTask(index:any){
     this._AuthService.deleteTask(this.tasks[index].id).subscribe(()=>{
     this.getTasks()
-    this.isDone = false
+    // this.isDone = false
     })
   }
 
@@ -72,7 +73,7 @@ export class TodolistComponent implements OnInit{
     this._AuthService.getTaskById(this.tasks[index].id).subscribe((response)=>{
       
       if('doneTasks'  in localStorage){
-        this.doneTasks = JSON.parse( localStorage.getItem('doneTasks' )!)
+        this.doneTasks = JSON.parse( localStorage.getItem('doneTasks')!)
         let exist = this.doneTasks.find(member => member.title == this.tasks[index].title
           && member.description == this.tasks[index].description)
         if(exist){
@@ -88,6 +89,7 @@ export class TodolistComponent implements OnInit{
         localStorage.setItem('doneTasks' , JSON.stringify(this.doneTasks))
       }
     })
+    this.isDone = false
   }
 
   //remove done task which you want from localStorage
@@ -101,16 +103,15 @@ export class TodolistComponent implements OnInit{
   clkDone(){
     $('.clck-done').toggleClass('done-tasks')
   }
-
   appearFRM(){
       $('.frm').addClass('appear')
   }
-
   disAappearFRM(){
     $('.frm').removeClass('appear')
   }
 
-  
 }
+
+
 
 
