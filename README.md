@@ -1,10 +1,11 @@
+# Note (Please read it)
+There is a problem with the back end (API), <br>
+you may need to download the code and then run it on your device for it to work perfectly
+
 # Todo-List-App
 todo list app with angular &amp; api
 <br>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a>.
 <br>build using Angular material.
-# Note
-There is a problem with the back end (API), <br>
-you may need to download the code and then run it on your device for it to work perfectly
 
 # Dependencies
 - Swagger
